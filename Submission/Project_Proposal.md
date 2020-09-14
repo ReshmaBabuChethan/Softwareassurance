@@ -94,11 +94,11 @@ The Magento team has a few requirements that a developer has to adhere to while 
 
 They have a contribution agreement that every contributor has to go through and sign. Here is a summary of their contribution agreement summary taken from Github
 
-&quot;_By making a contribution, you agree to the terms of the Magento Contributor License Agreement, which includes your grant to Magento of a royalty-free, perpetual and_
+&quot;_By making a contribution, you agree to the terms of the Magento Contributor License Agreement, which includes your grant to Magento of a royalty-free, perpetual and irrevocable license to use and relicense your contribution, and any copyrights and patent rights in your contribution You may only contribute software and materials originally created by you or your company and you must have the right to make the contribute on behalf of yourself and/or your company_.&quot;
 
-_irrevocable license to use and relicense your contribution, and any copyrights and patent rights in your contribution You may only contribute software and materials originally created by you or your company and you must have the right to make the contribute on behalf of yourself and/or your company_.&quot;
+License Agreement: The Magento team has an Open Software License (&quot;OSL&quot;) v. 3.0, the complete license information can be found [here](https://github.com/magento/magento2/blob/2.4-develop/LICENSE.txt) 
 
-License Agreement: The Magento team has an Open Software License (&quot;OSL&quot;) v. 3.0
+All code committed to Magento repositories will be licensed under the OSL 3.0 or the Magento Enterprise Edition (MEE) license.
 
 ## Software Security History
 
