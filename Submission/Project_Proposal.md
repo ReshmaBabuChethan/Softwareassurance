@@ -7,9 +7,9 @@
 - Reshma Babu Chethan
 - Sai Pradeep Koneti
 
-**Name of the Software:** We have selected [Magento](https://github.com/magento/magento2) as our open source system software
+**Name of the Software:** We have selected [Magento](https://github.com/magento/magento2) as our open-source software.
 
-**Hypothetical operational environment:** Home
+**Hypothetical operational environment:** The environment that we are considering to analyze the threats is Home,  but it can also be used in enterprise and office environment. 
 
 ## System Engineering View:
 
@@ -118,7 +118,7 @@ Default configuration of the software might create security weaknesses under cer
 
 As everyone in the team is new to the open-source Projects, initially, we thought of learning about open source projects and how different IT industries will use them. But guest lecture from Dr. Germonprez helped us a lot to form that idea about the open-source projects and their management. Once everybody got an idea, we segregated the task and searched for an open-source project that would fit the criteria. In the consecutive meetings, everybody in the team presented their open source project, and then we took a confidence vote to select the project. Once the project is finalized, we have gone through the project documentation available in their GitHub and Wiki pages and segregated the tasks for the project proposal.
 
-### Issues Occurred
+### Challenges Faced
 
 As all the meetings are completely remote and everybody is doing a full course load. Initially, we found it hard to finalize a spot for team meetings and discussion sessions for project selection and proposal work. But we have streamlined it using the shared calendar and picked up perfect timings for the team meetings and discussion sessions. In the future, we will follow the same approach throughout the project for easy scheduling of the sessions.
 
