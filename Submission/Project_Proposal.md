@@ -13,7 +13,7 @@
 
 ## System Engineering View:
 
-![System Engineering View](https://github.com/pradeepkoneti/Softwareassurance/blob/Pradeep/System%20Engineering%20View.jpeg)
+![System Engineering View](https://github.com/pradeepkoneti/Softwareassurance/blob/master/Attachments/System%20Engineering%20View.jpeg)
 
 ## Threats in the operational environment
 
@@ -59,7 +59,7 @@ The software magento2 is used for creation of ecommerce website which gives the 
 
 However, ecommerce has multiple threats, such as credit card fraud, personal information leakage, phishing attacks, distributed denial of service attacks and others which can damage the seller&#39;s reputation. Mostly of these threats can be managed by security coding and by conducting software assurance analysis. Magento2 has an active community with clear documentation, explicit coding guidelines and with a history of multiple reported errors, which some of them could create the previous commented threats, but with fast response. The group personal motivation is to possibly be able to impact a big community, with more than 100,000 merchants worldwide, and the community by improving the software and its security.
 
-![Project Motivation](https://github.com/pradeepkoneti/Softwareassurance/blob/Pradeep/Motivation.png)
+![Project Motivation](https://github.com/pradeepkoneti/Softwareassurance/blob/master/Attachments/Motivation.png)
 
 ## Open Source Software description
 
@@ -77,7 +77,7 @@ The documentation for Magento can be found [here](https://devdocs.magento.com/),
 
 ### Activity in Magento
 
-![Magento Activity](https://github.com/pradeepkoneti/Softwareassurance/blob/Pradeep/Activity.png)
+![Magento Activity](https://github.com/pradeepkoneti/Softwareassurance/blob/master/Attachments/Activity.png)
 
 ### License Summary and Contributor Agreement
 
