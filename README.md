@@ -3,7 +3,7 @@ Team project for software assurance
 
 ## Team Members:
 
-- Shashank Tankasala
+- Shashank Tankasala - Computer Science
 - Lucas Asato
 - Bhavana Gopisetty
 - Reshma Babu Chethan
@@ -12,5 +12,6 @@ Team project for software assurance
 ## Links
 
 [Project Dashboard Link](https://github.com/pradeepkoneti/Softwareassurance/projects/1)
+
 
 
