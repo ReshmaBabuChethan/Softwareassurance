@@ -7,23 +7,21 @@
 - Reshma Babu Chethan
 - Sai Pradeep Koneti
 
-**Name of the Software:** We have selected [Magento](https://github.com/magento/magento2) as our open-source software.
+**Name of the Software:** We have selected [Magento](https://github.com/magento/magento2) as our open-source software. 
 
-**Hypothetical operational environment:** The environment that we are considering to analyze the threats is Home,  but it can also be used in enterprise and office environment. 
-
+**Hypothetical operational environment:** As per the open-source software functionalities, we can consider three types of operational environments which are Home, Banking, and Enterprise. In the Home environment, users who are the e-commerce website customers will interact with the system using their browser. There can be different types of threats like user personal information hijack, issues with the payment systems that they are trying to access through the application, and tracking of their activity. While it comes to the Banking environment, users or the application is attempting to access the banking integration to do transactions, where users can face some transaction issues or some of the users can try to make some fraudulent transactions or there can be some integration issues between the open-source software and the banking system. In the Enterprise perspective, this application is a Storefront that will consist of the products, user information, and different location information from where it is being used, so there can be a misuse of the data if some unauthorized users are accessing it. Before the users interact with the system, they need to get approval from the administrator who is maintaining this storefront, and all the information needs to be securely stored during the operations. 
 ## System Engineering View:
 
 ![System Engineering View](https://github.com/pradeepkoneti/Softwareassurance/blob/master/Attachments/System%20Engineering%20View.jpeg)
 
 ## Threats in the operational environment
 
-1. Personal Information Hijack
-2. Payments issues
-3. Phishing emails
-4. Hacked Redirect
-5. Encryption of Secret data
-6. Proper authorization and validation to access data
-7. Secure Data Maintenance
+1. Personal Information Hijack: When users interact with the systems, there can be a chance that unauthorized users can access their information, or their activities are being tracked.
+2. Payments issues: When users interact with the payment system, there can be chances of payment failures or fraudulent transactions. While the users are making these transactions, their financial/Sensitive information must be stored privately in a secure way to avoid a data breach.  
+3. Phishing activities: During the interaction with the system, there is a scope for a data breach. In that scenario, it can lead to different threats like Phishing emails or fraudulent calls. 
+4. Hacked Redirect: If the admin credentials are compromised, then there is a chance that Hackers can redirect the users into the websites which they want to access when users are trying to access Magento. 
+5. Encryption of Secret data: If the administrators are not using robust encryption techniques for storing the confidential data, then unauthorized users can access it and take advantage of that information.  
+6. Secure Data Maintenance: The data stored in the system needs to be treated efficiently and effectively like taking regular backups or practicing proper security protocols, or else there is a chance of data loss or breaches.
 
 ## List of security features in the software
 
