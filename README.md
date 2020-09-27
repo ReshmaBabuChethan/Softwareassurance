@@ -9,9 +9,11 @@ Team project for software assurance
 - Reshma Babu Chethan
 - Sai Pradeep Koneti
 
+
 ## Links
 
-[Project Dashboard Link](https://github.com/pradeepkoneti/Softwareassurance/projects/1)
+[Project Dashboard 1](https://github.com/pradeepkoneti/Softwareassurance/projects/1)
 
+[Project Dashboard 2](https://github.com/pradeepkoneti/Softwareassurance/projects/3)
 
 
