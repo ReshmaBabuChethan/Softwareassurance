@@ -1,5 +1,4 @@
-Usecase
-
+       Usecase
        The website client wants to make a purchase on the website. For that the client can create an account or if already had one login to it. The account can store different personal information, such as name, last name, address, phone number, credit card number and others.
        MisUse Case
        A hacker with the intention of stealing the user information, or even use the online shop for them, can use different attacks to achieve its purpose, such as: 
