@@ -4,7 +4,7 @@
 
 The open-source system we have selected is Magento, which is an eCommerce platform that can help store owners to have a flexible shopping cart and all the functionalities of the online store. As we know, the eCommerce system will have different integrations and interactions; hackers will take leverage on those and try to launch various attacks on the system in a real-time environment. We have identified below five interactions of the Magento open-source software. 
 
-- [Login System](#login System)
+- [Login System](#login-system)
 - [Admin Login and access prevention](#admin-login-and-access-prevention)
 - [Admin Activities](#admin-activities)
 - [Order Management System](#order-management-system)
@@ -139,4 +139,8 @@ Coming to the security, the major security issues of the Magento are cross-site 
 
 ## Reflection
 
-Initially, we had a brainstorming session to identify the scenarios that fall under our system of interest. All of us came up with different scenarios, and after discussing each scenario's scope, we narrowed them down to 5 significant cases. We proactively chose one scenario each and decided to draw the use case diagram with its misuse case scenario in it. After having our weekly meeting, we showcased the diagrams we suggested some changes in our diagrams. Later after receiving some review comments after we met with our professor, we understood that we should not have repetitive scenarios in diagrams. The diagrams should also be speaking the intention of the actors. This was a little challenging for us to differentiate the scope of each scenario. We had a few working sessions to do some brainstorming and understand the difference in the scope.
+Initially, we had a brainstorming session to identify the scenarios that fall under our system of interest. All of us came up with different scenarios, and after discussing each scenario's scope, we narrowed them down to 5 significant cases. We proactively chose one scenario each and decided to draw the use case diagram with its misuse case scenario in it. After having our weekly meeting, we showcased the diagrams we suggested some changes in our diagrams. Later after receiving some review comments after we met with our professor, we understood that we should not have repetitive scenarios in diagrams. The diagrams should also be speaking the intention of the actors. This was a little challenging for us to differentiate the scope of each scenario. So, we have divided the scenarios and started working on different break out sessions for scenarios that have colliding use cases. This approach helped us track down the overlap easily and to make the neccessary modifications. 
+
+We have identified that a lack of communication between the team has caused repetitive scenarios in the use case diagrams. In the future, all the team members will regularly pull their changes into the version control system and let the team members know about their progress. In case of any issue or blocks on the tasks that they got assigned, every team member will create an issue with the tag "help wanted" and explain their blocks, so other team members can help them to overcome those blocks. 
+
+[Weekly Meetings - MOM](https://drive.google.com/file/d/1HtXY2KkCGCrKeiqnB67zMyCiiH6OsySF/view?usp=sharing)
