@@ -1,3 +1,15 @@
+# Requirements for Software Security Engineering
+
+## Introduction
+
+The open-source system we have selected is Magento, which is an eCommerce platform that can help store owners to have a flexible shopping cart and all the functionalities of the online store. As we know, the eCommerce system will have different integrations and interactions; hackers will take leverage on those and try to launch various attacks on the system in a real-time environment. We have identified below five interactions of the Magento open-source software. 
+
+- [Login System](#login System)
+- [Admin Login and access prevention](#admin-login-and-access-prevention)
+- [Admin Activities](#admin-activities)
+- [Order Management System](#order-management-system)
+- [SSL Upgrade for the Website](#ssl-upgrade-for-the-website)
+
 ## Login System
 
 ![Login System Misues Case](https://github.com/pradeepkoneti/Softwareassurance/blob/master/Use%20-%20Misuse%20Cases/Misuse%20case%20for%20Login%20system.jpeg)
@@ -91,7 +103,7 @@ Magento releases regular updates that provide bug fixes and performance improvem
 ![SSL certificates Use Case](https://github.com/pradeepkoneti/Softwareassurance/blob/master/Use%20-%20Misuse%20Cases/Mis-use%20Case%20Diagram%20SSL.jpeg)
 
 
-In this use/misuse case diagram, we can look at the advantages of having the SSL certificates in the open-source software Magento.
+In this use case and misuse case diagram, we can look at the advantages of having the SSL certificates in the open-source software Magento.
 
 ### Use case:
 
