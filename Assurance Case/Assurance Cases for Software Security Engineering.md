@@ -152,6 +152,15 @@ For the top claim, Magento Software minimizes unauthorized access here raises th
 
 ## Reflection: 
 
+Initially, we had a brainstorming session to identify the assurance cases that fall under our system of interest. In the team meeting, we decided that each one must come with two different assurance cases. Then we had a discussion regarding the cases and narrowed them down to 5 significant assurance cases and worked on each case individually.
+
+In the previous assignment, we learned that having regular feedback on our work could help us reduce the discussion hours during the meeting, which would provide an opportunity for an individual to work on corrections. We have implemented that approach this time and found that it was useful and more productive. Our team is happy with this approach and planning to implement it in the upcoming projects. This time we even started working in the breakout sessions during our meetings. This helped us do some brainstorming in pairs to get some valuable insights. This created a scope for more interaction with our teammates and allowed us to explore new perspectives during these sessions.  
+
+After meeting with the professor, we got some positive feedback on our drafts and some improvements suggestions. Then we started working on the depth analysis and grammar for the claims. Based on the above challenges, we shared individual thoughts on the claims and started working on different breakout sessions for assurance cases where we need improvements. We successfully addressed the challenges faced during our Milestone 2. 
+
+While working on this assignment, we got an opportunity to question Magento's assumptions and its security features. Hence, we started exploring the shreds of evidence for our claims. This gave us a good learning opportunity to understand the scope of threats in the open-source environment and how real time systems will mitigate them from the core. The proactive nature of the individual teammates helped the team assignment make good progress by reaching the deadlines in implementation. 
+
+
 
 [Project Dashboard](https://github.com/pradeepkoneti/Softwareassurance/projects/4)
 
