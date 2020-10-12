@@ -136,6 +136,8 @@ Thus, with all the above-mentioned evidences Magento adheres to protect payment 
 
 ## Assurance Claim 5: Magento Software minimizes unauthorized login access
 
+For eCommerce sites, username and password are important things that should be secured from the attackers. If the security of login credentials is not handled properly it may lead to critical issues and major loss. In this Assurance case, we are trying to assure that how Magento secures its users and admin credentials followed by the standards used by Magento in securing the login credentials. The standards maintained by Magento reduces the risk of an attacker using the Magento.
+
 ![login Assurance case](https://github.com/pradeepkoneti/Softwareassurance/blob/master/Assurance%20Case/_login%20Assurance%20case.jpeg)
 
 ### Evidence E5.1
