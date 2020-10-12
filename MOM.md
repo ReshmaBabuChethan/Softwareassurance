@@ -21,11 +21,26 @@
 |              |                      |                                                                                                                               |            |
 | Sep-19-2020  | 06:30 PM to 07:30 PM | Assigned each case to individuals to come with the diagram of usecase/misusecase scenarios as discussed in the meeting        | Full       |
 |              |                      |                                                                                                                               |            |
-| Sep-23-2020  | 07:30 PM to 09:15 PM | Indetail presentation of the usecase/misuse case scenarios  by individual's to the team                                       | Full       |
+|              | 07:30 PM to 09:15 PM | Indetail presentation of the usecase/misuse case scenarios  by individual's to the team                                       |            |
 |              |                      | Discussion of modification on usecase/misusecase scenarios                                                                    |            |
 |              |                      |                                                                                                                               |            |
 | Sep-24-2020  | 06:30 PM to 06:45 PM | Team meeting with professor                                                                                                   | Full       |
 |              |                      |                                                                                                                               |            |
-| Sep-26-2020  | 01:00 PM to 04:30 PM |  Final changes in all usecase/misuse case scenarios of System of interest                                                     | Full       |
+| Sep-26-2020  | 01:00 PM to 06:30 PM |  Final changes in all usecase/misuse case scenarios of System of interest                                                     | Full       |
 |              |                      | Discussion on Security related Configuration and Installation of Magento                                                      |            |
 |              |                      | Committing Final Changes to the Github repo                                                                                   |            |
+|              |                      |                                                                                                                               |            |
+| Oct-02-2020  | 06:30 PM to 07:30 PM | Discussion on Requirement phase(use case & misuse case)                                                                       | Full       |
+|              |                      | Discussion on Assignment feedback                                                                                             |            |
+|              |                      |                                                                                                                               |            |
+| Oct-04-2020  | 01:00 PM to 02:30 PM | Individual ideas on Assurance cases to the team                                                                               | Full       |
+|              |                      | Selection of five Top Claims                                                                                                  |            |
+|              |                      | Assigning each Assurance case to the individuals                                                                              |            |
+|              |                      |                                                                                                                               |            |
+| Oct-07-2020  | 07:30 PM to 09:00 PM | Assurance case presentation to the team                                                                                       | Full       |
+|              |                      | Discussion on the modifications required to the cases                                                                         |            |
+|              |                      |                                                                                                                               |            |
+| Oct-10-2020  | 10:00 AM to 02:30 PM | Modifications to the Assurance cases as per professor comments from the meeting                                               | Full       |
+|              |                      | Indepth look for each assurance case and checking all requiremnts are satisfired                                              |            |
+|              |                      | Individual presentation of Assurance cases to the team                                                                        |            |
+|              |                      | Commiting final changes to the github                                                                                         |            |
