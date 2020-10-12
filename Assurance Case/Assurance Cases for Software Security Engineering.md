@@ -1,4 +1,4 @@
-#Assurance Cases for Software Security Engineering
+# Assurance Cases for Software Security Engineering
 
 
 ## Introduction:
@@ -13,11 +13,11 @@ In this project, we are working on Magento, an open-source eCommerce platform th
 - [Magento Software minimizes unauthorized login access](#assurance-claim-5-magento-software-minimizes-unauthorized-login-access)
 
 
-##Assurance Claim 1: Magento minimizes SQL injections
+## Assurance Claim 1: Magento minimizes SQL injections
 
 ![Assurance Case_ SQL injection](https://github.com/pradeepkoneti/Softwareassurance/blob/master/Assurance%20Case/Assurance%20Case_%20SQL%20injection.jpeg)
 
-###Evidences:
+### Evidences:
 
 - E1.1 – Magento security center: Our sub-claim C1.1 assures that third parties extensions developers are provided with best practices documentations for developing their product. However, even with best practices documentation these extensions can still have SQL injection vulnerabilities. We address this problem with sub-claim C1. 5, where Magento provides a webpage called [Security Center](https://magento.com/security), which gather security information for Magento, which includes new patches releases, security updates, security alerts, best practices, and others. In this page, Magento also announces common third-party extensions known vulnerabilities, and advise it users to fix these problems as fast as possible to improve user’s security, consequently minimizing SQL injections on the system. 
 
@@ -27,7 +27,7 @@ In this project, we are working on Magento, an open-source eCommerce platform th
 
 - C1.8 and C1.9 – Our sub-claim C1.4 assures that that even if the user does not follow Magento’s best practices the user can still improve its protection by reviewing their code and repairing the possible threads. However, we cannot assume that the user knows how to do it or that they can do it effectively. We address this problem with sub-claim C1.8 and C1.9, where Magento could provide web vulnerability scanners and SQL injection attack tools to help the user to find the threads on their system and consequently fixing the possible threads for SQL injections on their system.
 
-##Assurance Claim 2: Magento minimizes data hijacking
+## Assurance Claim 2: Magento minimizes data hijacking
 
 The data that is being managed in the eCommerce websites is very crucial and critical. Because a loss of that data can result in serious ill fame to the entire organization, many hackers will be trying to get that data because it involves mostly personal details or financial information. In this assurance claim, we are trying to present the assurance strategies of the Magento to reduce the risk of the data hijacking from the websites that are using the open-source software. One a whole, we can say that data that is being managed on the websites will be encrypted or appropriately secured. 
 
@@ -50,7 +50,7 @@ There is another rebuttal for the sub claim C2.1, that what if there is any man 
 There is a chance for undermining case UM1 for the evidence E2.3. That what if the secure URLs that are not available to the users to access, to address that Magento effectively communicates with the search engine with the help of the [Search engine robots](https://docs.magento.com/user-guide/marketing/search-engine-robots.html), which is presented in the evidence E2.4. But there is another rebuttal case for the sub claim 2.1 that what if the developer's code consists of any insecure content like image or document URLs that are not secured under https. In this case, Padlock present to ensure the security of the users regarding the website will be disabled.  There is no proper mechanism in the Magento side to address this issue, but there is a chance to scan this issue in the third party sites like [whynopadlock](https://www.whynopadlock.com/)   
 
 
-##Assurance Claim 3: Magento minimizes malicious code
+## Assurance Claim 3: Magento minimizes malicious code
 
 It would be a challenging task for Magento to completely avoid the injection of malicious code into the system. Magento tries its best to reduce the risk of malicious code being introduced into 
 the code. By following few of the best practices it tries to be resilient to risks introduced by malicious code injection. In our claim we begin our discussion with a rebuttal R1 that unless
