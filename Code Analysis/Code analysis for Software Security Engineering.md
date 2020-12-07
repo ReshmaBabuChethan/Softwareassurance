@@ -10,8 +10,40 @@ While coming to the automated code review, we researched the automated code revi
 
 
 
-### Findings and Summary from manual code review
+### Findings from manual code review
 
+We have analyzed our misuse and assurance case
+
+#### Login Authentication
+
+We selected some of the majors CWE’s related to the login authentication, for manual code review using previous misuse cases done earlier on the semester. In this analysis we will be focusing on finding code faults related with credential appropriation using brute force attacks, dictionary attacks or by insufficiently protected credentials.
+
+As par of this, we selected a few login authentication related CWE’s, CWE-798, CWE-307 and CWE-259. We analyzed mostly of the user and a few admin login related codes for the previous mentioned login attacks. We started by checking the weakness mentioned in CWE-798 and CWE-259 at the same time, since CWE-259 is a child of CWE-798. From this two CWE’s we understand that the threats have two main variation, inbound and outbound, but due to time constrains and the group language ineptitude we were only able to check for the first variation, leaving this analysis incomplete. Latter on, the team checked weakness mention in CWE-307, by checking if the system restricts the number of authentication attempts.
+
+During our manual code analysis on login authentication, we did not notice any hard-code credentials, on the inbound variation, nor we founded errors	 with the restrictions of excessive authentication attempts. The analysis was based on the weak code suggested from the corresponding CWE.
+
+#### Activity Log
+
+We selected some of the major CWE’s related to logs, for manual code review because from earlier misuse and assurance cases we understood that the Magento has a log capturing mechanism. Magento admin monitors and validates the logs for any unusual activities. So, we wanted to check for any weakness in the logs related source code. Configuring loggers is security-sensitive, logs are useful to track after any security incident. Capturing, maintaining proper logs is essential and it should have enough information to lead on the root cause of the damage. Codes related to logs capturing can also become targets for attackers as these may contain sensitive information. Hence configuration of what type of information and how they are logged becomes crucial. 
+
+As part of this, we shortlisted some of the logs related to CWE’s. We analyzed a few of the logs related codes to validate for any log injection attacks. We understood from the CWE- 532 that the log capturing can also become a weak point if sensitive information is exposed to the attacker.  We also checked for any weaknesses mentioned in CWE-117 and CWE-778, checked for related weaknesses in some of the logs related source code such as ConsoleLogger.php, SampleDataDeployCommand.php, Mysql.php, and LoggerProxy.php.
+
+![Manual](https://github.com/pradeepkoneti/Softwareassurance/blob/master/Pictures/Picture13.png)
+
+![Manual](https://github.com/pradeepkoneti/Softwareassurance/blob/master/Pictures/Picture14.png)
+
+We tried to check for any hard-coded values and how logs/errors are getting reported. Magento uses Psr\Log\LoggerInterface to capture and write logs. We didn’t observe any full path, data type conversion, or any username passwords, location information in easily decodable format in the source codes. We tried to look for those weak code suggestions from CWE and traversed the codebase; could not find any. As mentioned, since the Magento codebase is huge and our team has no hands-on experience on PHP, we were able to do only limited surf for manual code analysis.
+
+
+#### Weak Encryption
+
+For evaluating the risk to sensitive information through using insufficiently random values we have chosen the CWE 330. Magneto being an ecommerce platform includes a lot of sensitive information during transactions. This is possible when the code generates random values  and improper cryptography methods are used the hacker can easily identify the patterns and hijack that session of the user to gain access to sensitive information. Thus we started exploring the session id generation part of the code. After analysing the code, we have analyzed that Magento adheres to the standards and does not use any random generator that is vulnerable to attacks, rather it uses good encryption standards to ensure that the hacker cannot easily identify patterns and hijack any session, and also since the data is encrypted it is [more secure](https://github.com/magento/magento2/blob/2.4-develop/lib/internal/Magento/Framework/Session/SessionManager.php#L423) 
+
+![Manual](https://github.com/pradeepkoneti/Softwareassurance/blob/master/Pictures/Picture12.png)
+
+#### Denial of Service
+
+During our Manual code review, we have gone through the Magento modules that will take the input parameters from the users like the credit card details during the payment phase or other other user details. Mainly the payment details validation blocks are present in java script modules which will validate the given card details for expiry etc. The developers are using regular expressions for validation, but the main thing is that they have kept a limit for the input strings that can be entered. In our opinion this can avert the attacks like the Denial of service as the limit of the characters strictly check the input string before comparing it with the regular expression. Even we have not found any traces for the issues like the code injection in these modules for the input validators.
 
 
 ### Findings and Summary from automated code scanning
@@ -58,19 +90,24 @@ Tool suggests storing the credentials outside of the code in a configuration fil
 
 
 Tool also suggests for sensitive code examples:
+
+```javascript
 $password = "65DBGgwe4uazdWQA"; // Sensitive
 $httpUrl = "https://example.domain?user=user&password=65DBGgwe4uazdWQA" // Sensitive
 $sshUrl = "ssh://user:65DBGgwe4uazdWQA@example.domain" // Sensitive
 
-
+```
 
 We can also check for suggestions from the tool on how to remediate this type of sensitive code.
+
+```javascript
 
 $user = getUser();
 $password = getPassword(); // Compliant
 
 $httpUrl = "https://example.domain?user=$user&password=$password" // Compliant
 $sshUrl = "ssh://$user:$password@example.domain" // Compliant
+```
 
 ##### Command Injection :
 Tool reported some of the issues that could lead to Command Injection as noted below. The suggestions were similar to the Authentication issue. Here also we could see the variable name used for password with which it’s easy to identify that it’s related to password. Tool suggests that credentials should not be hard-coded because it’s easily accessible from application source code or binary. We can find similar suggestions as weaknesses in CWE-798 Use of Hard-coded Credentials and CWE-259 Use of Hard-coded Password.
