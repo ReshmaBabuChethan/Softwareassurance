@@ -1,6 +1,6 @@
 # Code Review
 
-### Code Review Strategy
+## Code Review Strategy
 
 The Magento code is mostly written in PHP. There are many components in the systems like the payments, UI and the integration modules, etc. As this open-source software is available for a long time, many third party plugins can be installed and integrated with the software. The plugins typically use the API calls but are not included in the source code. There is a clear developer guide that will give instruction to all the contributors.
 
@@ -8,11 +8,19 @@ As the project codebase is huge, full manual review is not a feasible solution t
 
 While coming to the automated code review, we researched the automated code review tools that will be the best fit for the Magento system as most of it is written in the Php. Most of the automated code analysis tools are only having commercial packages, which makes them out of our reach. But the automated code analysis tool that looked a perfect fit for our analysis was SonarQube. A community edition can be installed in our local machines and provides different features like issue review, security hotspots, etc. We haven’t solely relied on the SonarQube, we even tried to run the analysis on the SonarCloud, which is an online version of the SonarQube. Still, unfortunately, due to the Magento code's size, it is not possible to run the analysis in the SonarCloud. Then we explored other tools that are good at analyzing the Php code and ended up with the Codacy. The Codacy is a publicly available, online tool which can be used for static code analysis. So, both SonarQube and Codacy are mainly used to identify potential security concerns in the existing Magento codebase. On the whole, we have used both the automated and manual code review process to find the potential security issues based on the attacks that we have outlined in our misuse cases, assurance cases, and threat models.
 
+### Challenges
 
+- Expertise in PHP Language:
 
-### Findings from manual code review
+Magento code is mostly developed using PHP language, but unfortunately, no one in our team got any experience with the PHP language. This is a major challenge in the manual code review because we need to go through the code and find out any present issues. To overcome those, we have gone through online blogs and tutorials to find out the security issues related to the codes developed in PHP and mostly relied on the Magento open-source software's ongoing issues. 
 
-We have analyzed our misuse and assurance case
+- Huge Code base: 
+
+As e-commerce, Magento already got a considerable code base, and it is not possible to scan the complete code in some of the automated code analysis tools. To overcome this, we have only concentrated on the misuse and assurance cases that we have generated previously and analyzed the code related to those modules.   
+
+## Findings from manual code review
+
+We have analyzed our misuse and assurance cases, and since Magento is an e-commerce platform. We tried to identify the most vulnerable scenarios and linked the related CWE's to them. Below are the categories for the vulnerabilities.
 
 #### Login Authentication
 
@@ -24,7 +32,7 @@ During our manual code analysis on login authentication, we did not notice any h
 
 #### Activity Log
 
-We selected some of the major CWE’s related to logs, for manual code review because from earlier misuse and assurance cases we understood that the Magento has a log capturing mechanism. Magento admin monitors and validates the logs for any unusual activities. So, we wanted to check for any weakness in the logs related source code. Configuring loggers is security-sensitive, logs are useful to track after any security incident. Capturing, maintaining proper logs is essential and it should have enough information to lead on the root cause of the damage. Codes related to logs capturing can also become targets for attackers as these may contain sensitive information. Hence configuration of what type of information and how they are logged becomes crucial. 
+We selected some of the major CWE’s related to logs, for manual code review from earlier misuse and assurance cases we understood that the Magento has a log capturing mechanism. Magento admin monitors and validates the logs for any unusual activities. So, we wanted to check for any weakness in the logs related source code. Configuring loggers is security-sensitive, logs are useful to track after any security incident. Capturing, maintaining proper logs is essential and it should have enough information to lead on the root cause of the damage. Codes related to logs capturing can also become targets for attackers as these may contain sensitive information. Hence configuration of what type of information and how they are logged becomes crucial. 
 
 As part of this, we shortlisted some of the logs related to CWE’s. We analyzed a few of the logs related codes to validate for any log injection attacks. We understood from the CWE- 532 that the log capturing can also become a weak point if sensitive information is exposed to the attacker.  We also checked for any weaknesses mentioned in CWE-117 and CWE-778, checked for related weaknesses in some of the logs related source code such as ConsoleLogger.php, SampleDataDeployCommand.php, Mysql.php, and LoggerProxy.php.
 
@@ -43,11 +51,23 @@ For evaluating the risk to sensitive information through using insufficiently ra
 
 #### Denial of Service
 
-During our Manual code review, we have gone through the Magento modules that will take the input parameters from the users like the credit card details during the payment phase or other other user details. Mainly the payment details validation blocks are present in java script modules which will validate the given card details for expiry etc. The developers are using regular expressions for validation, but the main thing is that they have kept a limit for the input strings that can be entered. In our opinion this can avert the attacks like the Denial of service as the limit of the characters strictly check the input string before comparing it with the regular expression. Even we have not found any traces for the issues like the code injection in these modules for the input validators.
+During our Manual code review, we have gone through the Magento modules that will take the input parameters from the users like the credit card details during the payment phase or other user details which is the case in the CWE 624, 95 . Mainly the payment details validation blocks are present in java script modules which will validate the given card details for expiry etc. The developers are using regular expressions for validation, but the main thing is that they have kept a limit for the input strings that can be entered. In our opinion this can avert the attacks like the Denial of service as the limit of the characters strictly check the input string before comparing it with the regular expression. Even we have not found any traces for the issues like the code injection in these modules for the input validators.
 
+![Manual](https://github.com/pradeepkoneti/Softwareassurance/blob/master/Pictures/Picture15.png)
 
-### Findings and Summary from automated code scanning
+#### Cross Site Scripting
 
+We have found that cross-site scripting is one of the major attacks to the magneto system from the previous assignment use case and misuse cases. In most of the use case and misuse case scenarios for the Magento system, cross-site scripting is a major thing that attackers prone to attack the Magento system. We found that the CWE are related to this attack and we got to know the CWE-79 and CWE-1004 that are related to this attack. When I try to search for the code related to these CWE in the code. As the code base is too large we found that there are few files related to this common weakness enumeration.
+
+```javascript
+public function setCookieSecure($cookieSecure)
+{
+$this>setOption('session.cookie_secure',(bool)$cookieSecure);
+return $this;
+}
+```
+
+## Findings from automated code scanning
 
 #### SonarQube
 Using SonarQube we started Magento code analysis at first. The tool uses a sonar scanner to scan for code issues. The tool was able to find 4.5K bugs and 933 security issues. 
@@ -141,20 +161,85 @@ In order to find the bugs and issues of the magento software we have tried anoth
 ![Codacy](https://github.com/pradeepkoneti/Softwareassurance/blob/master/Pictures/Picture11.png)
 
 
-
 The tool found many issues related to security that are maily related to the usage of deprecated functions from the lower versions of php. The next issues were all related to the improper handling of the improper usage of include file operation which is a major security threat as the complete directory of the sensitive information can be exposed to the attacker. The remaining issues are usage of superglobal variables in the code, improper usage of validated Sanitized Input. The above mentioned isues are related to the following CWE’S.
+
+##### Discouraged-Function-issues: 
+
+![Codacy](https://github.com/pradeepkoneti/Softwareassurance/blob/master/Pictures/Picture16.png) 
+
+##### Include file Issues:
+
+![Codacy](https://github.com/pradeepkoneti/Softwareassurance/blob/master/Pictures/Picture17.png) 
+
+#### Super Global Variables Issues:
+
+![Codacy](https://github.com/pradeepkoneti/Softwareassurance/blob/master/Pictures/Picture18.png)
+ 
+#### Validated Sanitized input issues:
+
+![Codacy](https://github.com/pradeepkoneti/Softwareassurance/blob/master/Pictures/Picture19.png)
+
+The tool has shown the issues related to usage of discouraged functions which is related to the security as shown above. Multiple issues have been reported related to the discouraged functions, file include functions, Super Global variables, validation of sanitized input.  Then based on the issues when I gone through the CWE documentation related to PHP issues I found that the similar weakness exist in  CWE-98 is the one which is related to the improper control of the include functions. And also weakness related to the super global issues are related to the CWE-1024 which is the exposure of the Global variables. The Codacy tool provide the relation like how to avoid the weakness in the code by highlighting the line of the code and by giving the brief about how to avoid the weakness in the code which is easily understand by the programmers.
+
 The CWE’S related to the above issues are :
+
 CWE-98: Improper Control of Filename for Include/Require Statement in PHP Program ('PHP Remote File Inclusion')
 CWE-1024: Comparison of Incompatible Types.
 
 
+## Summary of key findings
+
+#### [CWE-798](http://cwe.mitre.org/data/definitions/798) - Use of Hard-coded Credentials
+
+(Parent of [CWE-259](http://cwe.mitre.org/data/definitions/259) - Use of Hard-coded Password (specific for Password))
+
+Hard-coded credential can be a valuable resource for an attacker that allows it to bypass the authentication that was configured. This creates a security hole which might be difficult for the system to detect, and even if detected might be difficult to fix. There exist to main variation, inbound (software contains an authentication mechanism that checks the input credential against a hard-coded set of credentials) and outbound (software connects to another system, and this system contains hard-coded credential for connecting components). This type of weakness is related to CWE-344 Use of invariant value in Dynamically Changing Context, CWE-671 Lack of administrator control over Security and CWE-287 Improper Authentication. Related attach patterns CAPEC-70 Try common or Default Usernames and Passwords.
+
+#### [CWE-307](https://cwe.mitre.org/data/definitions/307.html) - Improper Restriction of Excessive Authentication Attempts
+Improper restriction of excessive authentication attempts can lead to brute force and dictionary attacks since it does not prevent multiple failed authentication attempts. This type of weakness is related to CWE-799 Improper Control of Interaction Frequency and CWE-287 Improper Authentication. We can see related vulnerabilities in CVE-1999-1152. Related attack patterns can be seen in CAPEC-16 Dictionary-based Password Attack and CAPEC-49 Password Brute Forcing.
 
 
-### Summary of key findings
+#### [CWE-532](https://cwe.mitre.org/data/definitions/532.html) - Insertion of Sensitive Information into Log File
+
+Information in the log file can give valuable guidance to an attacker. Different log files can be used for different stages and can unconsciously report sensitive data. For example, server logs can give information on the full path, names, and system information, and sometimes usernames and passwords. This type of weakness is like CWE-538 Insertion of sensitive information into an externally accessible file or directory. CVE-2017-9615 and CVE-2018-19999036 are the related vulnerabilities resulting from this weakness. CAPEC-215 holds more information on attack patterns.
+
+#### [CWE-117](https://cwe.mitre.org/data/definitions/117.html) - Improper output neutralization for Logs
+
+This can allow an attacker to forge log entries or inject malicious content into logs. This happens when data enters an application from an untrusted source or when data is written to an application or system log file. This type of weakness is related to CWE-116(Improper Encoding or Escaping of Output) and can lead to CWE-93(Improper Neutralization of CRLF sequences-CRLF Injection). We can see these related vulnerabilities in CVE-2006-4624. Related attack patterns show CAPEC-268(audit log manipulation) CAPEC-81(weblogs tampering) and CAPEC-93(Log Injection-Tampering-Forging).
+
+#### [CWE-778](https://cwe.mitre.org/data/definitions/778.html) - Insufficient Logging
+
+ This type of issue occurs when software either does not record the event or omits important details about the event when logging it. If security-critical events such as failed login attempts are not logged properly, this can make malicious behavior more difficult to detect and can hinder analysis. This weakness is related to CWE-223 omission of security-relevant Information. This type of weakness can lead to CVE_2008-4315, CVE-2008-1203 vulnerabilities.
+
+#### [CWE 330](https://cwe.mitre.org/data/definitions/330.html) - Use of Insufficiently Random Values
 
 
+In scenarios where the software generates  random values in a context, there is a high scope that the attacker can guess the next value that would be generated and he can gain access to sensitive information or impersonate as another user. For example when the software generates a random identifier for a user’s session with help of user id, then the session id will always be the same, and thus the attacker could easily predict the session and he can attack the session. To prevent this attack using a 256- bit seed is good enough to create a good random number. Also using good encryption strategies can help.This can also lead to other cryptographic and authentication errors. Related attack patterns include CAPEC-112, CAPEC-485, CAPEC-59.
 
-### Contributions
+#### [CWE 315](https://cwe.mitre.org/data/definitions/315.html) - Cleartext Storage of Sensitive Information in a Cookie
+
+In some cases the application can store sensitive information in cleartext in a cookie and the attackers can take advantage of it with the help of some tools and read the sensitive information. Some scenarios include admin password stored in a cookie, authentication information stored in a cookie and so on. Good encryption techniques can help in securing the data and reduces the risk of sensitive data being captured by the attacker. The other related attack patterns include CAPEC-31, CAPEC-37, CAPEC-39and CAPEC-74.
+
+#### [CWE-624](https://cwe.mitre.org/data/definitions/624.html) - Executable Regular Expression Error:
+
+Regular expressions will be used many times for the input validations. But when it comes to performance analysis these types of the input validations against the regular expressions are very costly. Especially in the systems like Magento if the time for performing a task is high then it can easily result in the Denial of service. Because  with the increase in size of the input string, the comparison time also increases with the regular expression. Attackers can easily exploit this in the e-commerce systems as there will be lot of scope for the inputs. That is the reason we have selected this CWE for manual code review, we have given different attacks for denial of services in our misuse and assurance cases. 
+
+
+#### [CWE-95](https://cwe.mitre.org/data/definitions/95.html) - Improper Neutralization of Directives in Dynamically Evaluated Code ('Eval Injection’):
+
+
+Input validation is very vital in the e-commerce systems like Magento, there will be case where these input strings will be taken to execute the code in the background of the system. If the input string is not validated properly then there is a chance for the attackers to run that code and perform operation that are prohibited. In these consequences application security will be seriously impacted. We have mentioned different types of the injection attacks in our misuse and assurance cases that is the reason we have selected this specific CWE for the manual code review. The related attack patters are CAPEC-35 : Leverage Executable Code in Non-Executable Files.
+
+#### [CWE-79](https://cwe.mitre.org/data/definitions/79.html) - Improper Neutralization of Input During Web Page Generation
+
+The CWE-79 is related to the inject the malicious code into the user session cookies and gain control over the username and password of the users of the Magento and with the help of username and password the attackers try to run the commands which make changes in the Magento system. This type of attack also has an impact on the Availability Access control mechanism. The SSL certificate will avoid all such kinds of attacks related to Magento. Magento documentation provides the instructions to setup SSL for Magento systems.
+
+#### [CWE-1004](https://cwe.mitre.org/data/definitions/104.html) - Sensitive Cookie Without 'HttpOnly' Flag.
+
+The CWE-1004 is related to the that whenever we include the ‘HttpOnly’ flag value in the session cookie which avoids all the attacks of CSS. But in our code, there is no flag value is used as magneto proposes the solution to set the flag value with environment variables or with the help of GUI from admin console can be used to make changes by the super admin.
+
+
+## Contributions
 
 The team realized that we could do some contribution on the installations documentation since we had some problem while following it.
 To contribute to the project, we need to be complaint with Magento's contribution guidelines as it’s a big open-source project for eCommerce platform and contribution has to be genuine. Since we intend to contribute with the documentation, we will need to create a topic on the [Magento 2](https://community.magento.com/t5/Magento-2-x-Feature-Requests-and/idb-p/feature-requests?_ga=2.240654403.1910862862.1607290268-1686783359.1599864396) Feature Requests and Improvements forum. In this new topic we intend to suggest new content on the documentation in areas that we had doubts during installation and where we had to follow third parties’ instructions such as forums and blogs. The main topics that the team will introduce are:
@@ -165,7 +250,7 @@ These topics are better explained on Installation and security related configura
 From our analysis the team does not intend to do a code contribution. This decision was made based on two points. Firstly, the group could not find any code problems during the manual code analysis, due to the project size and PHP being a new language to the group. Secondly, the insecurity about the results of our automated code analysis, due to possible cases of false positives and the inexperience with such tools.
 
 
-### Reflection
+## Reflection
 
 We had faced multiple issues at the beginning of code analysis; the project was big, the PHP language was new, and as well the code analysis. Based on the tools suggested by the professor, the task became easy and we also had to rely on a few online links for installation and setup purposes. 
 
@@ -178,3 +263,7 @@ Additionally, we also explored a few more automated tools available online; Coda
 We learned multiple things from this project, as to what is code analysis and its significance; the varieties of automated code analysis tools and how to use those; and why manual code review is important. Professor’s instructions on manual and automated code analysis helped us to move forward with our assignment. Also, we understood together as a team, we can make uneasy tasks easy and we enjoyed working together. Our regular team meetings, planning and peer review on segregated tasks helped us to meet this milestone on the given timeline.
 
 
+
+[Project Dashboard](https://github.com/pradeepkoneti/Softwareassurance/projects/6)
+
+[Team Meetings - MOM](https://github.com/pradeepkoneti/Softwareassurance/blob/master/MOM.md)
